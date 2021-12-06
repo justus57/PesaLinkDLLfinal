@@ -17,7 +17,7 @@ namespace PesaLinkDLL
         {
         }
 
-        static string certPath = "bank0089_transport.cert.pfx";
+        static string certPath = "bank0089-transport.cert.pfx";
       
         static X509Certificate2 cert = new X509Certificate2(File.ReadAllBytes(certPath), ""); //path to certificate
 
