@@ -17,12 +17,11 @@ namespace PesaLinkDLL
         {
         }
 
-       static string certPath = AppDomain.CurrentDomain.BaseDirectory + @"\bank0089-transport.cert.pfx";
-
-        static X509Certificate2 cert = new X509Certificate2(File.ReadAllBytes(certPath), ""); //path to certificate
-
         public static string AccountVerificationPesalinK(string BankCode, string Accountno)
         {
+            string certPath = @"cert\bank0089-transport.cert.pfx";
+            X509Certificate2 cert = new X509Certificate2(File.ReadAllBytes(certPath), ""); //path to certificate
+
             string ipsresponse = null;
 
             try
@@ -59,7 +58,8 @@ namespace PesaLinkDLL
             catch (Exception es)
             {
                 WriteLog(es.Message);
-            }            
+            }
+            WriteLog(ipsresponse);
             return ipsresponse;
         }
 
@@ -69,7 +69,7 @@ namespace PesaLinkDLL
                 try
                 {
                     //set up a filestream
-                    string strPath = @"C:\Logs\PesalinkClasslibrary";
+                    string strPath = @"C:\Logs\New folder (2)";
                     string fileName = DateTime.Now.ToString("MMddyyyy") + "_logs.txt";
                     string filenamePath = strPath + '\\' + fileName;
                     Directory.CreateDirectory(strPath);
